@@ -1,5 +1,5 @@
 from stix2 import FileSystemSource
-fs = FileSystemSource('./cti/enterprise-attack')
+fs = FileSystemSource('./enterprise-attack')
 
 from stix2 import Filter
 filt = Filter('type', '=', 'attack-pattern')

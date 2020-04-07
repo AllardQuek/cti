@@ -1,13 +1,14 @@
 from stix2 import Indicator
+from stix2 import parse
 
+# * Create an indicator
 indicator = Indicator(name="File hash for malware variant",
                       labels=["malicious-activity"],
                       pattern="[file:hashes.md5 = 'd41d8cd98f00b204e9800998ecf8427e']")
 # print(indicator)
-print(type(indicator))
+# print(type(indicator))
 
-from stix2 import parse
-
+# * Parse that indicator
 indicator1 = parse("""{
     "type": "indicator",
     "spec_version": "2.1",
@@ -22,12 +23,9 @@ indicator1 = parse("""{
     "pattern": "[file:hashes.md5 ='d41d8cd98f00b204e9800998ecf8427e']",
     "valid_from": "2017-09-26T23:33:39.829952Z"
 }""")
-# print(indicator1)
-print(type(indicator1))
 
-
-indicator2 = parse(indicator)
-print(indicator2)
+print(indicator1)
+print(parse(indicator))
 
 
 
